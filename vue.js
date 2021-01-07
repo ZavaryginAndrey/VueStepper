@@ -43,7 +43,6 @@ const App = {
     nextOrFinish() {
       if (this.activeIndex == 4) {
         this.isFinished = true
-        console.log(this.isFinished)
       }
       else {
         this.activeIndex++
@@ -65,7 +64,7 @@ const App = {
       return this.steps[this.activeIndex].text
     },
     isBackBtnDisabled() {
-      return this.activeIndex === 0
+      return !this.activeIndex
     },
     isFinalStep() {
       return this.activeIndex === 4 ? 'Закончить' : 'Вперед'

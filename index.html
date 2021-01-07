@@ -25,14 +25,35 @@
           ]"
           v-for="(step, stepIndex) in steps"
         >
-          <span @click="setActive(stepIndex)">{{ stepIndex+1 }}</span>
+          <span
+            @click="setActive(stepIndex)"
+          >
+            {{ stepIndex+1 }}
+          </span>
           {{ step.title }}
         </li>
       </ul>
-      <button v-if="isFinished" class="btn" @click="reset">Начать заново</button>
+      <button
+        v-if="isFinished"
+        class="btn"
+        @click="reset"
+      >
+        Начать заново
+      </button>
       <div v-else>
-        <button class="btn" @click="prev" :disabled="isBackBtnDisabled">Назад</button>
-        <button class="btn primary" @click="nextOrFinish">{{ isFinalStep }}</button>
+        <button
+          class="btn"
+          @click="prev"
+          :disabled="isBackBtnDisabled"
+        >
+          Назад
+        </button>
+        <button
+          class="btn primary"
+          @click="nextOrFinish"
+        >
+          {{ isFinalStep }}
+        </button>
       </div>
     </div>
   </div>
