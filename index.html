@@ -18,11 +18,12 @@
       </div>
       <ul class="steps-list">
         <li
-          :class="[
-            'steps-item',
-            setClassActive(stepIndex),
-            setClassDone(stepIndex)
-          ]"
+          :class="{
+            'steps-item': true,
+            'active': stepIndex === activeIndex,
+            'done': stepIndex < activeIndex
+
+          }"
           v-for="(step, stepIndex) in steps"
         >
           <span
@@ -52,7 +53,7 @@
           class="btn primary"
           @click="nextOrFinish"
         >
-          {{ isFinalStep }}
+          {{ isFinalStep ? 'Закончить' : 'Вперед' }}
         </button>
       </div>
     </div>
